@@ -15,6 +15,10 @@
     .nav a:hover { background: #f0f0f0; }
     .nav a .label { font-weight: 600; }
     .nav a .desc { font-size: 0.85em; color: #888; margin-top: 2px; }
+    .nav a.feature { background: linear-gradient(135deg, #2D5C56, #3F7872); border-color: #2D5C56; color: #F5F0EB; }
+    .nav a.feature:hover { background: linear-gradient(135deg, #1B3F3A, #2D5C56); }
+    .nav a.feature .desc { color: rgba(245, 240, 235, 0.75); }
+    .section-label { font-size: 0.75em; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #aaa; margin: 8px 4px 12px; }
     .footer { margin-top: auto; text-align: center; padding: 24px; font-size: 0.85em; color: #aaa; border-top: 1px solid #e0e0e0; }
   </style>
 </head>
@@ -24,6 +28,13 @@
     <p>Game Studio</p>
   </div>
   <div class="nav">
+    <div class="section-label">Games</div>
+    <a class="feature" href="/slide-to-puzzle/">
+      <div class="label">Slide to Puzzle!</div>
+      <div class="desc">슬라이딩 퍼즐 · 박물관 컬렉션 · iOS 출시 예정</div>
+    </a>
+
+    <div class="section-label">Legal</div>
     <a href="/legal/privacy-policy.html">
       <div class="label">Privacy Policy</div>
       <div class="desc">개인정보처리방침</div>

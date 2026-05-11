@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide to Puzzle! — A museum-curated sliding puzzle by studioD51</title>
+    <meta name="description" content="Slide rows and columns to complete iconic artworks. 100 hand-crafted levels and 12 classical masterpieces — from Van Gogh to Kandinsky.">
+    <meta name="theme-color" content="#F5F0EB">
+    <link rel="icon" type="image/png" href="/slide-to-puzzle/assets/icon.png">
+    <link rel="apple-touch-icon" href="/slide-to-puzzle/assets/icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg:        #F5F0EB;
+            --bg-deep:   #EDE7E0;
+            --surface:   #FAF7F2;
+            --surface-2: #FFFFFF;
+            --text:      #3A3632;
+            --text-2:    #615A52;
+            --muted:     #B5AFA8;
+            --border:    #E2DAD1;
+            --patina:    #2D5C56;
+            --patina-hi: #3F7872;
+            --patina-lo: #1B3F3A;
+            --gold:      #C8956C;
+            --gold-soft: #E8C9A6;
+            --shadow-sm: 0 2px 8px rgba(58, 54, 50, 0.06);
+            --shadow:    0 12px 30px rgba(58, 54, 50, 0.10);
+            --shadow-lg: 0 30px 60px rgba(58, 54, 50, 0.14);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            background-image:
+                radial-gradient(ellipse at top, rgba(255,255,255,0.5), transparent 60%),
+                radial-gradient(ellipse at bottom right, rgba(200, 149, 108, 0.06), transparent 50%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        .display {
+            font-family: 'Fraunces', 'Iowan Old Style', 'Apple Garamond', Georgia, serif;
+            font-feature-settings: "ss01" on, "ss02" on;
+            letter-spacing: -0.01em;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* --- Top bar --- */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 28px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+        .wordmark {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.15em;
+            color: var(--text-2);
+            letter-spacing: 0.01em;
+            text-decoration: none;
+        }
+        .wordmark:hover { color: var(--patina); }
+
+        .lang-toggle {
+            display: inline-flex;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 4px;
+            box-shadow: var(--shadow-sm);
+        }
+        .lang-toggle button {
+            border: none;
+            background: transparent;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.85em;
+            font-weight: 500;
+            color: var(--text-2);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .lang-toggle button.active {
+            background: var(--patina);
+            color: #F5F0EB;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 60px 0 100px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (min-width: 860px) {
+            .hero-grid {
+                grid-template-columns: 1.3fr 1fr;
+                gap: 80px;
+            }
+        }
+        .hero-icon {
+            width: 132px;
+            height: 132px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 28px;
+            display: block;
+        }
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(48px, 8vw, 86px);
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+        .hero h1 .accent {
+            color: var(--patina);
+            font-style: italic;
+            font-weight: 500;
+        }
+        .hero .tagline {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(20px, 2.4vw, 26px);
+            color: var(--text-2);
+            margin-bottom: 26px;
+            line-height: 1.35;
+        }
+        .hero .lede {
+            font-size: 1.05em;
+            color: var(--text-2);
+            max-width: 36em;
+            margin-bottom: 36px;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+        .cta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            background: var(--patina);
+            color: #F5F0EB;
+            border: none;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.98em;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(45, 92, 86, 0.25);
+            cursor: default;
+            opacity: 0.95;
+        }
+        .cta-pill .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold-soft);
+            box-shadow: 0 0 0 0 rgba(232, 201, 166, 0.55);
+            animation: pulse 2.2s infinite;
+        }
+        @keyframes pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(232, 201, 166, 0.6); }
+            70%  { box-shadow: 0 0 0 11px rgba(232, 201, 166, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(232, 201, 166, 0); }
+        }
+        .cta-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 22px;
+            background: transparent;
+            color: var(--patina);
+            border: 1.5px solid var(--patina);
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.98em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .cta-ghost:hover {
+            background: var(--patina);
+            color: var(--bg);
+        }
+
+        /* Hero collage (right column) */
+        .hero-collage {
+            position: relative;
+            display: none;
+            aspect-ratio: 4 / 5;
+            max-width: 360px;
+            margin-left: auto;
+        }
+        @media (min-width: 860px) {
+            .hero-collage { display: block; }
+        }
+        .hero-collage .shot {
+            position: absolute;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+        .hero-collage .shot img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-collage .shot.front {
+            top: 6%;
+            left: 18%;
+            width: 64%;
+            height: 92%;
+            z-index: 2;
+            transform: rotate(-2deg);
+        }
+        .hero-collage .shot.back {
+            top: 0;
+            right: 0;
+            width: 52%;
+            height: 76%;
+            z-index: 1;
+            transform: rotate(6deg);
+            opacity: 0.92;
+        }
+        .hero-collage .shot.behind {
+            bottom: 0;
+            left: 0;
+            width: 48%;
+            height: 70%;
+            z-index: 1;
+            transform: rotate(-7deg);
+            opacity: 0.85;
+        }
+
+        /* --- Section frame --- */
+        section.block {
+            padding: 80px 0;
+            position: relative;
+        }
+        section.alt { background: var(--bg-deep); }
+
+        .eyebrow {
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 0.82em;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+        h2.section-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(32px, 4.5vw, 48px);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 14px;
+            max-width: 22ch;
+        }
+        h2.section-title .italic { color: var(--patina); }
+        p.section-lede {
+            font-size: 1.08em;
+            color: var(--text-2);
+            max-width: 38em;
+            margin-bottom: 50px;
+        }
+
+        /* --- Stats --- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .stat {
+            background: var(--surface);
+            padding: 32px 20px;
+            text-align: center;
+        }
+        .stat .num {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(40px, 6vw, 64px);
+            line-height: 1;
+            color: var(--patina);
+            letter-spacing: -0.02em;
+            margin-bottom: 6px;
+        }
+        .stat .label {
+            font-size: 0.92em;
+            color: var(--text-2);
+            font-weight: 500;
+        }
+        @media (max-width: 640px) {
+            .stats { grid-template-columns: 1fr; }
+        }
+
+        /* --- Showcase (screenshots) --- */
+        .showcase-rail {
+            display: flex;
+            gap: 26px;
+            overflow-x: auto;
+            padding: 10px 4px 30px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+        .showcase-rail::-webkit-scrollbar { height: 6px; }
+        .showcase-rail::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+        .shot-card {
+            flex: 0 0 auto;
+            width: 260px;
+            scroll-snap-align: start;
+        }
+        .shot-card .frame {
+            border-radius: 28px;
+            overflow: hidden;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            aspect-ratio: 1080 / 1920;
+        }
+        .shot-card .frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .shot-card .caption {
+            margin-top: 14px;
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.05em;
+            color: var(--text);
+        }
+        .shot-card .sub {
+            color: var(--text-2);
+            font-size: 0.9em;
+            margin-top: 2px;
+        }
+        @media (min-width: 1024px) {
+            .showcase-rail {
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+            .shot-card { width: 200px; }
+        }
+
+        /* --- Features --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .feature {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 32px 28px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        .feature .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--patina), var(--patina-hi));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg);
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 22px;
+        }
+        .feature.gold .icon {
+            background: linear-gradient(135deg, var(--gold), #b67d54);
+        }
+        .feature h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.35em;
+            color: var(--text);
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+        .feature p {
+            color: var(--text-2);
+            font-size: 0.96em;
+            line-height: 1.55;
+        }
+        .feature .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 14px;
+        }
+        .chip {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--bg-deep);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            font-size: 0.78em;
+            color: var(--text-2);
+            font-weight: 500;
+        }
+
+        /* --- Masterpieces --- */
+        .museum {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        @media (min-width: 860px) {
+            .museum { grid-template-columns: 1.4fr 1fr; gap: 50px; }
+        }
+
+        .featured-painting {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #1f1611;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4 / 5;
+        }
+        .featured-painting img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .featured-painting .plaque {
+            position: absolute;
+            left: 22px;
+            right: 22px;
+            bottom: 22px;
+            padding: 14px 18px;
+            background: rgba(245, 240, 235, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .featured-painting .plaque .title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.1em;
+            color: var(--text);
+            line-height: 1.2;
+        }
+        .featured-painting .plaque .meta {
+            font-size: 0.85em;
+            color: var(--text-2);
+            margin-top: 3px;
+            font-style: italic;
+        }
+
+        .museum-side h3 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.4em;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .museum-side .desc {
+            color: var(--text-2);
+            font-size: 0.98em;
+            margin-bottom: 24px;
+            line-height: 1.55;
+        }
+        .thumb-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .thumb {
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #1f1611;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .thumb-caption {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 0.78em;
+            color: var(--text-2);
+            margin-top: 6px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .more-line {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 1.02em;
+            color: var(--gold);
+            padding-top: 6px;
+            border-top: 1px solid var(--border);
+            margin-top: 6px;
+        }
+
+        /* --- Modes ribbon --- */
+        .modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-top: 40px;
+        }
+        .mode {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 22px;
+        }
+        .mode .mode-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.1em;
+            color: var(--patina);
+            margin-bottom: 4px;
+        }
+        .mode .mode-desc {
+            font-size: 0.9em;
+            color: var(--text-2);
+            line-height: 1.45;
+        }
+
+        /* --- Quote band --- */
+        .quote-band {
+            padding: 80px 0;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at center, rgba(45,92,86,0.06), transparent 70%),
+                var(--bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .quote-band blockquote {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(22px, 3.6vw, 32px);
+            line-height: 1.4;
+            color: var(--text);
+            max-width: 22ch;
+            margin: 0 auto 20px;
+            letter-spacing: -0.005em;
+        }
+        .quote-band .attribution {
+            font-size: 0.88em;
+            color: var(--muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 0 50px;
+            background: var(--patina-lo);
+            color: rgba(245, 240, 235, 0.85);
+        }
+        footer .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        footer .brand {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.4em;
+            color: var(--bg);
+            margin-bottom: 6px;
+        }
+        footer .brand-sub {
+            font-size: 0.9em;
+            color: rgba(245, 240, 235, 0.6);
+            font-style: italic;
+        }
+        footer .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+        }
+        footer .links a {
+            color: rgba(245, 240, 235, 0.85);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: color 0.15s ease;
+        }
+        footer .links a:hover { color: var(--gold-soft); }
+        footer .copy {
+            font-size: 0.82em;
+            color: rgba(245, 240, 235, 0.5);
+            border-top: 1px solid rgba(245, 240, 235, 0.12);
+            padding-top: 22px;
+        }
+
+        /* --- Lang toggle JS --- */
+        body[data-lang="en"] .lang-ko { display: none; }
+        body[data-lang="ko"] .lang-en { display: none; }
+        .lang-ko, .lang-en { display: inline; }
+
+        /* Reveal on scroll (CSS-only progressive enhancement) */
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.7s ease, transform 0.7s ease;
+            }
+            .reveal.in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body data-lang="en">
+
+    <!-- =========== TOP BAR =========== -->
+    <header class="topbar">
+        <a href="/" class="wordmark">studioD51</a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+            <button id="btn-en" class="active" onclick="switchLang('en')">EN</button>
+            <button id="btn-ko" onclick="switchLang('ko')">한국어</button>
+        </div>
+    </header>
+
+    <!-- =========== HERO =========== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <img class="hero-icon" src="/slide-to-puzzle/assets/icon.png" alt="Slide to Puzzle! app icon">
+                    <h1 class="display">
+                        Slide to <span class="accent">Puzzle</span><span style="color: var(--gold);">!</span>
+                    </h1>
+                    <p class="tagline">
+                        <span class="lang-en">A museum-curated sliding puzzle.</span>
+                        <span class="lang-ko">박물관에서 큐레이팅한 슬라이딩 퍼즐.</span>
+                    </p>
+                    <p class="lede">
+                        <span class="lang-en">Push rows and columns through the canvas to complete the image. One hundred hand-crafted levels and twelve unlockable masterpieces — from Van Gogh's <i>Starry Night</i> to Kandinsky's <i>Yellow-Red-Blue</i>.</span>
+                        <span class="lang-ko">행과 열을 끝까지 밀어내며 이미지를 완성하세요. 100개의 정성스러운 레벨과 12점의 클래식 명화 — 반 고흐의 <i>별이 빛나는 밤</i>부터 칸딘스키의 <i>황색-적색-청색</i>까지.</span>
+                    </p>
+                    <div class="cta-row">
+                        <button class="cta-pill" type="button" aria-disabled="true">
+                            <span class="dot"></span>
+                            <span class="lang-en">Coming soon to iOS</span>
+                            <span class="lang-ko">iOS 출시 예정</span>
+                        </button>
+                        <a class="cta-ghost" href="mailto:studioD51.official@gmail.com?subject=Slide%20to%20Puzzle%21%20launch%20notification">
+                            <span class="lang-en">Notify me →</span>
+                            <span class="lang-ko">출시 알림 받기 →</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-collage" aria-hidden="true">
+                    <div class="shot back"><img src="/slide-to-puzzle/assets/screenshot_4.png" alt=""></div>
+                    <div class="shot behind"><img src="/slide-to-puzzle/assets/screenshot_3.png" alt=""></div>
+                    <div class="shot front"><img src="/slide-to-puzzle/assets/screenshot_1.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== STATS / MECHANICS =========== -->
+    <section class="block alt">
+        <div class="container">
+            <div class="eyebrow">
+                <span class="lang-en">How it plays</span>
+                <span class="lang-ko">플레이 방식</span>
+            </div>
+            <h2 class="section-title display">
+                <span class="lang-en">Slide. Lock. <span class="italic">Reveal.</span></span>
+                <span class="lang-ko">밀고. 잠그고. <span class="italic">드러내고.</span></span>
+            </h2>
+            <p class="section-lede">
+                <span class="lang-en">Each row and column scrolls in a loop. Snap an edge into place and it locks — gently glazed, then radiating into the next. Solve from the outside in until the painting comes home.</span>
+                <span class="lang-ko">행과 열이 무한 루프로 회전합니다. 가장자리부터 제자리를 찾으면 잠기고, 부드러운 광택이 다음 줄로 번져갑니다. 바깥부터 안쪽으로 풀어내며 그림을 완성하세요.</span>
+            </p>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="num">100</div>
+                    <div class="label">
+                        <span class="lang-en">hand-crafted levels</span>
+                        <span class="lang-ko">정성스러운 레벨</span>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="num">12</div>
+                    <div class="label">
+                        <span class="lang-en">classical masterpieces</span>
+                        <span class="lang-ko">클래식 명화</span>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="num">3</div>
+                    <div class="label">
+                        <span class="lang-en">progressive modifiers</span>
+                        <span class="lang-ko">단계별 변주 모드</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== SHOWCASE =========== -->
+    <section class="block">
+        <div class="container">
+            <div class="eyebrow">
+                <span class="lang-en">Gallery walk</span>
+                <span class="lang-ko">갤러리 산책</span>
+            </div>
+            <h2 class="section-title display">
+                <span class="lang-en">Quiet rooms, <span class="italic">polished glass.</span></span>
+                <span class="lang-ko">고요한 전시실, <span class="italic">투명한 광택.</span></span>
+            </h2>
+            <p class="section-lede">
+                <span class="lang-en">Frosted ivory chrome, emerald patina accents, and a marble background — the whole game is designed to feel like a quiet museum room.</span>
+                <span class="lang-ko">프로스티드 아이보리, 에메랄드 페이티나, 그리고 대리석 결의 배경. 게임 전체가 조용한 박물관의 한 전시실처럼 설계되었습니다.</span>
+            </p>
+
+            <div class="showcase-rail">
+                <div class="shot-card">
+                    <div class="frame"><img src="/slide-to-puzzle/assets/screenshot_1.png" alt="Main play screen showing puzzle in progress"></div>
+                    <div class="caption">
+                        <span class="lang-en">Play</span>
+                        <span class="lang-ko">플레이</span>
+                    </div>
+                    <div class="sub">
+                        <span class="lang-en">100-level progression</span>
+                        <span class="lang-ko">100레벨 시퀀스</span>
+                    </div>
+                </div>
+                <div class="shot-card">
+                    <div class="frame"><img src="/slide-to-puzzle/assets/screenshot_2.png" alt="Gallery of cleared puzzles"></div>
+                    <div class="caption">
+                        <span class="lang-en">Gallery</span>
+                        <span class="lang-ko">갤러리</span>
+                    </div>
+                    <div class="sub">
+                        <span class="lang-en">Replay your collection</span>
+                        <span class="lang-ko">완성한 작품 다시 즐기기</span>
+                    </div>
+                </div>
+                <div class="shot-card">
+                    <div class="frame"><img src="/slide-to-puzzle/assets/screenshot_3.png" alt="Masterpiece carousel"></div>
+                    <div class="caption">
+                        <span class="lang-en">Masterpiece</span>
+                        <span class="lang-ko">명화</span>
+                    </div>
+                    <div class="sub">
+                        <span class="lang-en">Unlock 12 classics</span>
+                        <span class="lang-ko">12점의 클래식 해금</span>
+                    </div>
+                </div>
+                <div class="shot-card">
+                    <div class="frame"><img src="/slide-to-puzzle/assets/screenshot_4.png" alt="Masterpiece reveal after completion"></div>
+                    <div class="caption">
+                        <span class="lang-en">Reveal</span>
+                        <span class="lang-ko">리빌</span>
+                    </div>
+                    <div class="sub">
+                        <span class="lang-en">Full-screen exhibition</span>
+                        <span class="lang-ko">전시실 풀스크린 감상</span>
+                    </div>
+                </div>
+                <div class="shot-card">
+                    <div class="frame"><img src="/slide-to-puzzle/assets/screenshot_5.png" alt="Settings and customization"></div>
+                    <div class="caption">
+                        <span class="lang-en">Polish</span>
+                        <span class="lang-ko">디테일</span>
+                    </div>
+                    <div class="sub">
+                        <span class="lang-en">Personal best, haptics</span>
+                        <span class="lang-ko">개인 기록 · 햅틱</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== FEATURES =========== -->
+    <section class="block alt">
+        <div class="container">
+            <div class="eyebrow">
+                <span class="lang-en">Curated for sliding</span>
+                <span class="lang-ko">슬라이딩을 위해 다듬은 것들</span>
+            </div>
+            <h2 class="section-title display">
+                <span class="lang-en">Three small ways to <span class="italic">re-see</span> an image.</span>
+                <span class="lang-ko">이미지를 <span class="italic">다시 보게</span> 만드는 세 가지 변주.</span>
+            </h2>
+            <p class="section-lede">
+                <span class="lang-en">Modifiers unlock gradually across the journey — each one nudging how you read the canvas while you slide.</span>
+                <span class="lang-ko">변주 모드는 여정 속에서 점진적으로 등장합니다. 슬라이드를 하면서 캔버스를 보는 방식이 조금씩 달라집니다.</span>
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="icon">M</div>
+                    <h3><span class="lang-en">Mono</span><span class="lang-ko">모노</span></h3>
+                    <p>
+                        <span class="lang-en">The canvas appears in grayscale until each row clicks home — color blooms only as you solve.</span>
+                        <span class="lang-ko">행을 잠글 때마다 색이 피어납니다. 흑백 캔버스가 한 줄씩 색으로 되살아납니다.</span>
+                    </p>
+                    <div class="chips"><span class="chip">Lv 13+</span></div>
+                </div>
+                <div class="feature">
+                    <div class="icon">B</div>
+                    <h3><span class="lang-en">Blur</span><span class="lang-ko">블러</span></h3>
+                    <p>
+                        <span class="lang-en">A small number of cells stay frosted until locked, like a painting still drying on the easel.</span>
+                        <span class="lang-ko">일부 셀이 흐릿하게 시작됩니다. 잠글 때마다 또렷해지는, 마르고 있는 그림 같은 감각.</span>
+                    </p>
+                    <div class="chips"><span class="chip">Lv 14+</span></div>
+                </div>
+                <div class="feature gold">
+                    <div class="icon">R</div>
+                    <h3><span class="lang-en">Rotate</span><span class="lang-ko">회전</span></h3>
+                    <p>
+                        <span class="lang-en">A handful of cells start rotated. Tap to spin them upright before the row will lock.</span>
+                        <span class="lang-ko">일부 셀이 돌아간 채로 시작합니다. 탭으로 바로 세운 뒤에야 줄이 잠깁니다.</span>
+                    </p>
+                    <div class="chips"><span class="chip">Lv 21+</span></div>
+                </div>
+            </div>
+
+            <div class="modes">
+                <div class="mode">
+                    <div class="mode-title">
+                        <span class="lang-en">Auto-advance</span>
+                        <span class="lang-ko">자동 진행</span>
+                    </div>
+                    <div class="mode-desc">
+                        <span class="lang-en">Clear a level, watch the artwork breathe, drift into the next.</span>
+                        <span class="lang-ko">한 판을 풀면 작품을 잠시 감상한 뒤 다음 판으로 자연스럽게 흘러갑니다.</span>
+                    </div>
+                </div>
+                <div class="mode">
+                    <div class="mode-title">
+                        <span class="lang-en">Personal Best</span>
+                        <span class="lang-ko">개인 최고 기록</span>
+                    </div>
+                    <div class="mode-desc">
+                        <span class="lang-en">Trophy chip with delta from your first clear — quiet, not pushy.</span>
+                        <span class="lang-ko">첫 클리어 대비 변화량을 작은 트로피 칩으로 보여줍니다. 조용하게.</span>
+                    </div>
+                </div>
+                <div class="mode">
+                    <div class="mode-title">
+                        <span class="lang-en">Continue anywhere</span>
+                        <span class="lang-ko">언제든 이어하기</span>
+                    </div>
+                    <div class="mode-desc">
+                        <span class="lang-en">Sequence, Gallery replay, Masterpiece — every board remembers where you left it.</span>
+                        <span class="lang-ko">시퀀스·갤러리 리플레이·명화 — 모든 보드가 멈춘 그 자리를 기억합니다.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== MASTERPIECES =========== -->
+    <section class="block">
+        <div class="container">
+            <div class="eyebrow">
+                <span class="lang-en">The collection</span>
+                <span class="lang-ko">컬렉션</span>
+            </div>
+            <h2 class="section-title display">
+                <span class="lang-en">Twelve paintings, <span class="italic">unlocked one by one.</span></span>
+                <span class="lang-ko">열두 점의 그림, <span class="italic">한 점씩 차례로.</span></span>
+            </h2>
+            <p class="section-lede">
+                <span class="lang-en">Each masterpiece is divided into outer panels surrounding an inner puzzle. Solve every panel, then a full-screen exhibition fades in — a small museum moment.</span>
+                <span class="lang-ko">명화는 바깥 패널들이 안쪽 퍼즐을 감싸는 구조로 펼쳐집니다. 모든 패널을 풀면 풀스크린 전시 화면이 부드럽게 등장합니다. 작은 박물관의 한 장면처럼.</span>
+            </p>
+
+            <div class="museum">
+                <div class="featured-painting">
+                    <img src="/slide-to-puzzle/assets/mp_starry_night.jpg" alt="The Starry Night by Vincent van Gogh">
+                    <div class="plaque">
+                        <div class="title display">The Starry Night</div>
+                        <div class="meta">Vincent van Gogh · 1889</div>
+                    </div>
+                </div>
+                <div class="museum-side">
+                    <h3>
+                        <span class="lang-en">Start with the stars.</span>
+                        <span class="lang-ko">별로부터 시작합니다.</span>
+                    </h3>
+                    <p class="desc">
+                        <span class="lang-en">Van Gogh's <i>Starry Night</i> is unlocked from the very first tap. Keep going, and the rest of the gallery opens — a new room every few levels.</span>
+                        <span class="lang-ko">반 고흐의 <i>별이 빛나는 밤</i>은 시작과 동시에 열립니다. 계속 풀어나가면 몇 레벨마다 새로운 전시실 한 칸씩 열립니다.</span>
+                    </p>
+
+                    <div class="thumb-row">
+                        <div>
+                            <div class="thumb"><img src="/slide-to-puzzle/assets/mp_grande_jatte.jpg" alt="A Sunday on La Grande Jatte"></div>
+                            <div class="thumb-caption">Seurat · 1886</div>
+                        </div>
+                        <div>
+                            <div class="thumb"><img src="/slide-to-puzzle/assets/mp_mona_lisa.jpg" alt="Mona Lisa"></div>
+                            <div class="thumb-caption">da Vinci · 1503</div>
+                        </div>
+                        <div>
+                            <div class="thumb"><img src="/slide-to-puzzle/assets/mp_the_kiss.jpg" alt="The Kiss"></div>
+                            <div class="thumb-caption">Klimt · 1908</div>
+                        </div>
+                    </div>
+
+                    <p class="more-line">
+                        <span class="lang-en">…and eight more, waiting to be uncovered.</span>
+                        <span class="lang-ko">…그리고 여덟 점이 더, 발견되기를 기다리고 있습니다.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== QUOTE BAND =========== -->
+    <section class="quote-band">
+        <div class="container">
+            <blockquote class="display">
+                <span class="lang-en">“Slow puzzles, made to look at.”</span>
+                <span class="lang-ko">“바라보기 위해 만든 느린 퍼즐.”</span>
+            </blockquote>
+            <div class="attribution">studioD51</div>
+        </div>
+    </section>
+
+    <!-- =========== FOOTER =========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand">Slide to Puzzle!</div>
+                    <div class="brand-sub">by studioD51</div>
+                </div>
+                <div class="links">
+                    <a href="/legal/privacy-policy-slide-to-puzzle.html">
+                        <span class="lang-en">Privacy</span>
+                        <span class="lang-ko">개인정보처리방침</span>
+                    </a>
+                    <a href="/legal/terms-of-service.html">
+                        <span class="lang-en">Terms</span>
+                        <span class="lang-ko">이용약관</span>
+                    </a>
+                    <a href="/legal/support.html">
+                        <span class="lang-en">Support</span>
+                        <span class="lang-ko">고객 지원</span>
+                    </a>
+                    <a href="mailto:studioD51.official@gmail.com">
+                        studioD51.official@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="copy">
+                © 2026 studioD51. All rights reserved.
+                <span style="opacity:0.7; margin-left:8px;">
+                    <span class="lang-en">Slide to Puzzle! is a trademark of studioD51.</span>
+                    <span class="lang-ko">Slide to Puzzle!은 studioD51의 상표입니다.</span>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            document.body.setAttribute('data-lang', lang);
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+            try { localStorage.setItem('s2p-lang', lang); } catch (e) {}
+        }
+        // Restore preference
+        try {
+            const saved = localStorage.getItem('s2p-lang');
+            if (saved === 'ko' || saved === 'en') switchLang(saved);
+        } catch (e) {}
+
+        // Light reveal-on-scroll
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.feature, .shot-card, .featured-painting, .stat').forEach(el => {
+                el.classList.add('reveal');
+                io.observe(el);
+            });
+        }
+    </script>
+</body>
+</html>
