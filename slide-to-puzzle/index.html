@@ -220,6 +220,91 @@
             color: var(--bg);
         }
 
+        /* --- Store badges --- */
+        .store-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 20px 11px 18px;
+            background: #28241F;
+            color: #FAF7F2;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+        .store-badge:hover {
+            transform: translateY(-2px);
+            background: #1F1C18;
+            box-shadow: var(--shadow-lg);
+        }
+        .store-badge:active { transform: translateY(0); }
+        .store-badge svg {
+            width: 26px;
+            height: 26px;
+            flex: 0 0 auto;
+        }
+        .store-badge .badge-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+            text-align: left;
+        }
+        .store-badge .badge-small {
+            font-size: 0.66em;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: rgba(250, 247, 242, 0.72);
+            text-transform: uppercase;
+        }
+        .store-badge .badge-big {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 1.18em;
+            letter-spacing: -0.005em;
+            margin-top: 1px;
+        }
+
+        /* --- Download band --- */
+        .download-band {
+            padding: 84px 0;
+            text-align: center;
+            background:
+                radial-gradient(ellipse at center, rgba(45,92,86,0.07), transparent 70%),
+                var(--bg-deep);
+        }
+        .download-band .eyebrow { text-align: center; }
+        .download-band h2 {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(30px, 4.4vw, 46px);
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 14px;
+        }
+        .download-band h2 .italic { color: var(--patina); }
+        .download-band p.lede {
+            font-size: 1.06em;
+            color: var(--text-2);
+            max-width: 30em;
+            margin: 0 auto 36px;
+        }
+        .download-band .store-badges { justify-content: center; }
+        .download-band .store-meta {
+            margin-top: 24px;
+            font-size: 0.86em;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+
         /* Hero collage (right column) */
         .hero-collage {
             position: relative;
@@ -703,15 +788,26 @@
                         <span class="lang-en">Push rows and columns through the canvas to complete the image. One hundred hand-crafted levels and twelve unlockable masterpieces — from Van Gogh's <i>Starry Night</i> to Kandinsky's <i>Yellow-Red-Blue</i>.</span>
                         <span class="lang-ko">행과 열을 끝까지 밀어내며 이미지를 완성하세요. 100개의 정성스러운 레벨과 12점의 클래식 명화 — 반 고흐의 <i>별이 빛나는 밤</i>부터 칸딘스키의 <i>황색-적색-청색</i>까지.</span>
                     </p>
-                    <div class="cta-row">
-                        <button class="cta-pill" type="button" aria-disabled="true">
-                            <span class="dot"></span>
-                            <span class="lang-en">Coming soon to iOS</span>
-                            <span class="lang-ko">iOS 출시 예정</span>
-                        </button>
-                        <a class="cta-ghost" href="mailto:studioD51.official@gmail.com?subject=Slide%20to%20Puzzle%21%20launch%20notification">
-                            <span class="lang-en">Notify me →</span>
-                            <span class="lang-ko">출시 알림 받기 →</span>
+                    <div class="store-badges">
+                        <a class="store-badge" href="https://apps.apple.com/us/app/slide-to-puzzle/id6768292349" target="_blank" rel="noopener" aria-label="Download Slide to Puzzle! on the App Store">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.42 2.2-1.26 3.04-.99.99-2.18 1.56-3.27 1.47-.13-1.1.43-2.27 1.21-3.03.86-.83 2.29-1.46 3.32-1.48zm3.86 16.36c-.56 1.3-.83 1.88-1.55 3.03-1.01 1.6-2.43 3.6-4.2 3.61-1.57.01-1.97-1.02-4.1-1.01-2.13.01-2.57 1.03-4.14 1.01-1.77-.01-3.12-1.81-4.13-3.41-2.82-4.48-3.12-9.74-1.38-12.53 1.24-1.99 3.19-3.15 5.02-3.15 1.87 0 3.04 1.02 4.59 1.02 1.5 0 2.41-1.02 4.58-1.02 1.63 0 3.36.89 4.59 2.42-4.03 2.2-3.38 7.96.72 9.43z"/></svg>
+                            <span class="badge-text">
+                                <span class="badge-small">
+                                    <span class="lang-en">Download on the</span>
+                                    <span class="lang-ko">App Store에서</span>
+                                </span>
+                                <span class="badge-big">App Store</span>
+                            </span>
+                        </a>
+                        <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.studioD51.slidetopuzzle" target="_blank" rel="noopener" aria-label="Get Slide to Puzzle! on Google Play">
+                            <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00D2FF" d="M48 59.7c-3 3.2-4.8 8.2-4.8 14.7v363.2c0 6.5 1.8 11.5 4.8 14.7l1.2 1.2 203.4-203.4v-4.8L49.2 58z"/><path fill="#FFCE00" d="M320.3 324.4l-67.7-67.8v-4.8l67.8-67.8 1.5.9 80.3 45.6c22.9 13 22.9 34.3 0 47.4l-80.3 45.6z"/><path fill="#00F076" d="M321.8 323.5L252.6 254.2 48 458.8c7.5 8 20 9 34 1l239.8-136.3"/><path fill="#FF3A44" d="M321.8 184.9L82 49c-14-8-26.5-7-34 1l204.6 204.2z"/></svg>
+                            <span class="badge-text">
+                                <span class="badge-small">
+                                    <span class="lang-en">Get it on</span>
+                                    <span class="lang-ko">다운로드하기</span>
+                                </span>
+                                <span class="badge-big">Google Play</span>
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -990,6 +1086,50 @@
                 <span class="lang-ko">“바라보기 위해 만든 느린 퍼즐.”</span>
             </blockquote>
             <div class="attribution">studioD51</div>
+        </div>
+    </section>
+
+    <!-- =========== DOWNLOAD BAND =========== -->
+    <section class="download-band" id="download">
+        <div class="container">
+            <div class="eyebrow">
+                <span class="lang-en">Out now</span>
+                <span class="lang-ko">지금 출시</span>
+            </div>
+            <h2 class="display">
+                <span class="lang-en">Your first <span class="italic">masterpiece</span> is waiting.</span>
+                <span class="lang-ko">당신의 첫 <span class="italic">명화</span>가 기다리고 있습니다.</span>
+            </h2>
+            <p class="lede">
+                <span class="lang-en">Free to download on iOS and Android. Slide your first canvas into place tonight.</span>
+                <span class="lang-ko">iOS와 안드로이드에서 무료로 받으세요. 오늘 밤, 첫 캔버스를 맞춰보세요.</span>
+            </p>
+            <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/us/app/slide-to-puzzle/id6768292349" target="_blank" rel="noopener" aria-label="Download Slide to Puzzle! on the App Store">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.42 2.2-1.26 3.04-.99.99-2.18 1.56-3.27 1.47-.13-1.1.43-2.27 1.21-3.03.86-.83 2.29-1.46 3.32-1.48zm3.86 16.36c-.56 1.3-.83 1.88-1.55 3.03-1.01 1.6-2.43 3.6-4.2 3.61-1.57.01-1.97-1.02-4.1-1.01-2.13.01-2.57 1.03-4.14 1.01-1.77-.01-3.12-1.81-4.13-3.41-2.82-4.48-3.12-9.74-1.38-12.53 1.24-1.99 3.19-3.15 5.02-3.15 1.87 0 3.04 1.02 4.59 1.02 1.5 0 2.41-1.02 4.58-1.02 1.63 0 3.36.89 4.59 2.42-4.03 2.2-3.38 7.96.72 9.43z"/></svg>
+                    <span class="badge-text">
+                        <span class="badge-small">
+                            <span class="lang-en">Download on the</span>
+                            <span class="lang-ko">App Store에서</span>
+                        </span>
+                        <span class="badge-big">App Store</span>
+                    </span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.studioD51.slidetopuzzle" target="_blank" rel="noopener" aria-label="Get Slide to Puzzle! on Google Play">
+                    <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00D2FF" d="M48 59.7c-3 3.2-4.8 8.2-4.8 14.7v363.2c0 6.5 1.8 11.5 4.8 14.7l1.2 1.2 203.4-203.4v-4.8L49.2 58z"/><path fill="#FFCE00" d="M320.3 324.4l-67.7-67.8v-4.8l67.8-67.8 1.5.9 80.3 45.6c22.9 13 22.9 34.3 0 47.4l-80.3 45.6z"/><path fill="#00F076" d="M321.8 323.5L252.6 254.2 48 458.8c7.5 8 20 9 34 1l239.8-136.3"/><path fill="#FF3A44" d="M321.8 184.9L82 49c-14-8-26.5-7-34 1l204.6 204.2z"/></svg>
+                    <span class="badge-text">
+                        <span class="badge-small">
+                            <span class="lang-en">Get it on</span>
+                            <span class="lang-ko">다운로드하기</span>
+                        </span>
+                        <span class="badge-big">Google Play</span>
+                    </span>
+                </a>
+            </div>
+            <div class="store-meta">
+                <span class="lang-en">Free · iOS &amp; Android · No account required</span>
+                <span class="lang-ko">무료 · iOS &amp; 안드로이드 · 계정 가입 불필요</span>
+            </div>
         </div>
     </section>
 
