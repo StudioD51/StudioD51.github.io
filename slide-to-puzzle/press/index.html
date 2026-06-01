@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide to Puzzle! — Press Kit | studioD51</title>
+    <meta name="description" content="Press kit for Slide to Puzzle! — a museum-curated sliding puzzle with no empty tile. 100 hand-crafted levels, 12 classical masterpieces. Fact sheet, screenshots, logos & press contact.">
+    <meta name="theme-color" content="#F5F0EB">
+    <link rel="icon" type="image/png" href="/slide-to-puzzle/assets/icon.png">
+    <link rel="apple-touch-icon" href="/slide-to-puzzle/assets/icon.png">
+
+    <meta property="og:title" content="Slide to Puzzle! — Press Kit">
+    <meta property="og:description" content="A sliding puzzle with one quiet rebellion: there is no empty tile. 100 levels, 12 world masterpieces. By studioD51.">
+    <meta property="og:image" content="/slide-to-puzzle/assets/s2p_04_masterpiece.png">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg:        #F5F0EB;
+            --bg-deep:   #EDE7E0;
+            --surface:   #FAF7F2;
+            --surface-2: #FFFFFF;
+            --text:      #3A3632;
+            --text-2:    #615A52;
+            --muted:     #B5AFA8;
+            --border:    #E2DAD1;
+            --patina:    #2D5C56;
+            --patina-hi: #3F7872;
+            --patina-lo: #1B3F3A;
+            --gold:      #C8956C;
+            --gold-soft: #E8C9A6;
+            --shadow-sm: 0 2px 8px rgba(58, 54, 50, 0.06);
+            --shadow:    0 12px 30px rgba(58, 54, 50, 0.10);
+            --shadow-lg: 0 30px 60px rgba(58, 54, 50, 0.14);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            background-image:
+                radial-gradient(ellipse at top, rgba(255,255,255,0.5), transparent 60%),
+                radial-gradient(ellipse at bottom right, rgba(200, 149, 108, 0.06), transparent 50%);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        .display {
+            font-family: 'Fraunces', 'Iowan Old Style', 'Apple Garamond', Georgia, serif;
+            font-feature-settings: "ss01" on, "ss02" on;
+            letter-spacing: -0.01em;
+        }
+        .italic { font-style: italic; }
+
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+        /* --- Top bar --- */
+        .topbar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 24px 28px; max-width: 1120px; margin: 0 auto;
+        }
+        .topbar-left { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+        .wordmark {
+            font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.15em;
+            color: var(--text-2); letter-spacing: 0.01em; text-decoration: none;
+        }
+        .wordmark:hover { color: var(--patina); }
+        .back-link {
+            font-size: 0.86em; font-weight: 500; color: var(--patina);
+            text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+        }
+        .back-link:hover { color: var(--patina-lo); }
+
+        .lang-toggle {
+            display: inline-flex; background: var(--surface); border: 1px solid var(--border);
+            border-radius: 999px; padding: 4px; box-shadow: var(--shadow-sm);
+        }
+        .lang-toggle button {
+            border: none; background: transparent; padding: 6px 14px; border-radius: 999px;
+            font-family: inherit; font-size: 0.85em; font-weight: 500; color: var(--text-2);
+            cursor: pointer; transition: all 0.2s ease;
+        }
+        .lang-toggle button.active { background: var(--patina); color: #F5F0EB; }
+
+        /* --- Hero --- */
+        .hero { padding: 48px 0 64px; }
+        .hero .eyebrow { margin-bottom: 18px; }
+        .hero-head { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-bottom: 26px; }
+        .hero-icon {
+            width: 104px; height: 104px; border-radius: 24px;
+            box-shadow: var(--shadow-lg); display: block; flex: 0 0 auto;
+        }
+        .hero h1 {
+            font-family: 'Fraunces', serif; font-weight: 500;
+            font-size: clamp(40px, 6.5vw, 68px); line-height: 1.02;
+            letter-spacing: -0.025em; color: var(--text);
+        }
+        .hero h1 .accent { color: var(--patina); font-style: italic; font-weight: 500; }
+        .hero .tagline {
+            font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+            font-size: clamp(19px, 2.2vw, 24px); color: var(--text-2);
+            margin-bottom: 30px; line-height: 1.35;
+        }
+
+        /* --- Store badges --- */
+        .store-badges { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+        .store-badge {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 11px 20px 11px 18px; background: #28241F; color: #FAF7F2;
+            border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;
+            text-decoration: none; box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+        .store-badge:hover { transform: translateY(-2px); background: #1F1C18; box-shadow: var(--shadow-lg); }
+        .store-badge:active { transform: translateY(0); }
+        .store-badge svg { width: 26px; height: 26px; flex: 0 0 auto; }
+        .store-badge .badge-text { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
+        .store-badge .badge-small {
+            font-size: 0.66em; font-weight: 500; letter-spacing: 0.04em;
+            color: rgba(250, 247, 242, 0.72); text-transform: uppercase;
+        }
+        .store-badge .badge-big {
+            font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.18em;
+            letter-spacing: -0.005em; margin-top: 1px;
+        }
+
+        /* --- Section frame --- */
+        section.block { padding: 72px 0; position: relative; }
+        section.alt { background: var(--bg-deep); }
+
+        .eyebrow {
+            font-family: 'Inter Tight', sans-serif; font-size: 0.82em; font-weight: 600;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+        }
+        h2.section-title {
+            font-family: 'Fraunces', serif; font-weight: 500;
+            font-size: clamp(30px, 4vw, 44px); line-height: 1.1; letter-spacing: -0.02em;
+            color: var(--text); margin-bottom: 14px; max-width: 24ch;
+        }
+        h2.section-title .italic { color: var(--patina); }
+        p.section-lede { font-size: 1.06em; color: var(--text-2); max-width: 40em; margin-bottom: 44px; }
+
+        /* --- Factsheet --- */
+        .factsheet {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+            background: var(--border); border: 1px solid var(--border);
+            border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm);
+        }
+        .fact { background: var(--surface); padding: 20px 22px; }
+        .fact .k {
+            font-size: 0.72em; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 6px;
+        }
+        .fact .v { font-size: 1em; color: var(--text); line-height: 1.4; }
+        .fact .v a { color: var(--patina); text-decoration: none; border-bottom: 1px solid rgba(45,92,86,0.25); }
+        .fact .v a:hover { border-bottom-color: var(--patina); }
+        @media (max-width: 640px) { .factsheet { grid-template-columns: 1fr; } }
+
+        /* --- Copy blocks (press blurbs) --- */
+        .copy-block {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 18px; padding: 26px 28px; margin-bottom: 18px; position: relative;
+        }
+        .copy-block .copy-label {
+            font-size: 0.74em; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;
+        }
+        .copy-block .copy-len { color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
+        .copy-block p { color: var(--text); font-size: 1.02em; line-height: 1.6; margin: 0; }
+        .copy-block p + p { margin-top: 12px; }
+        .copy-block .btn-copy {
+            margin-top: 16px; border: 1px solid var(--border); background: var(--surface-2);
+            color: var(--text-2); border-radius: 999px; padding: 7px 16px; font: inherit;
+            font-size: 0.82em; font-weight: 500; cursor: pointer; transition: all 0.18s ease;
+        }
+        .copy-block .btn-copy:hover { background: var(--patina); color: var(--bg); border-color: var(--patina); }
+
+        /* --- Features --- */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .feature {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 22px;
+            padding: 28px 26px; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+        .feature .icon {
+            width: 44px; height: 44px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--patina), var(--patina-hi));
+            display: flex; align-items: center; justify-content: center; color: var(--bg);
+            font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.2em; margin-bottom: 20px;
+        }
+        .feature.gold .icon { background: linear-gradient(135deg, var(--gold), #b67d54); }
+        .feature h3 {
+            font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.28em;
+            color: var(--text); margin-bottom: 9px; letter-spacing: -0.01em;
+        }
+        .feature p { color: var(--text-2); font-size: 0.95em; line-height: 1.55; }
+
+        /* --- Screenshots showcase --- */
+        .showcase-rail {
+            display: flex; gap: 22px; overflow-x: auto; padding: 10px 4px 26px;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+        }
+        .showcase-rail::-webkit-scrollbar { height: 6px; }
+        .showcase-rail::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        .shot-card { flex: 0 0 auto; width: 220px; scroll-snap-align: start; }
+        .shot-card .frame {
+            border-radius: 26px; overflow: hidden; background: var(--surface-2);
+            border: 1px solid var(--border); box-shadow: var(--shadow); aspect-ratio: 1242 / 2694;
+        }
+        .shot-card .frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .shot-card .caption {
+            margin-top: 12px; font-family: 'Fraunces', serif; font-weight: 500;
+            font-size: 1em; color: var(--text);
+        }
+        .shot-card .dl-link {
+            font-size: 0.8em; color: var(--patina); text-decoration: none; font-weight: 500;
+            display: inline-block; margin-top: 2px;
+        }
+        .shot-card .dl-link:hover { text-decoration: underline; }
+
+        /* --- Asset download grid --- */
+        .asset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        .asset-card {
+            display: flex; align-items: center; gap: 16px; background: var(--surface);
+            border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px;
+            text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .asset-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+        .asset-card .thumb {
+            width: 52px; height: 52px; border-radius: 12px; object-fit: cover;
+            flex: 0 0 auto; border: 1px solid var(--border); background: var(--surface-2);
+        }
+        .asset-card .a-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02em; color: var(--text); }
+        .asset-card .a-meta { font-size: 0.82em; color: var(--text-2); margin-top: 2px; }
+
+        /* --- Masterpieces --- */
+        .museum { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        @media (min-width: 860px) { .museum { grid-template-columns: 1.4fr 1fr; gap: 50px; } }
+        .featured-painting {
+            position: relative; border-radius: 18px; overflow: hidden; background: #1f1611;
+            box-shadow: var(--shadow-lg); aspect-ratio: 4 / 5;
+        }
+        .featured-painting img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .featured-painting .plaque {
+            position: absolute; left: 22px; right: 22px; bottom: 22px; padding: 14px 18px;
+            background: rgba(245, 240, 235, 0.92); backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .featured-painting .plaque .title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.1em; color: var(--text); line-height: 1.2; }
+        .featured-painting .plaque .meta { font-size: 0.85em; color: var(--text-2); margin-top: 3px; font-style: italic; }
+        .museum-side h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.4em; margin-bottom: 6px; color: var(--text); }
+        .museum-side .desc { color: var(--text-2); font-size: 0.98em; margin-bottom: 24px; line-height: 1.55; }
+        .thumb-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+        .thumb { aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; background: #1f1611; box-shadow: var(--shadow-sm); }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .thumb-caption { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.78em; color: var(--text-2); margin-top: 6px; text-align: center; line-height: 1.3; }
+        .more-line { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.02em; color: var(--gold); padding-top: 6px; border-top: 1px solid var(--border); margin-top: 6px; }
+
+        /* --- Quote band --- */
+        .quote-band {
+            padding: 76px 0; text-align: center;
+            background: radial-gradient(ellipse at center, rgba(45,92,86,0.06), transparent 70%), var(--bg);
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .quote-band blockquote {
+            font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+            font-size: clamp(22px, 3.6vw, 32px); line-height: 1.4; color: var(--text);
+            max-width: 24ch; margin: 0 auto 20px; letter-spacing: -0.005em;
+        }
+        .quote-band .attribution { font-size: 0.88em; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+        /* --- Contact band --- */
+        .contact-band {
+            padding: 80px 0; text-align: center;
+            background: radial-gradient(ellipse at center, rgba(45,92,86,0.07), transparent 70%), var(--bg-deep);
+        }
+        .contact-band h2 {
+            font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.12; letter-spacing: -0.02em; color: var(--text); margin-bottom: 14px;
+        }
+        .contact-band h2 .italic { color: var(--patina); }
+        .contact-band p.lede { font-size: 1.06em; color: var(--text-2); max-width: 32em; margin: 0 auto 30px; }
+        .contact-mail {
+            display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px;
+            background: var(--patina); color: #F5F0EB; border-radius: 999px;
+            font-family: 'Fraunces', serif; font-size: 1.1em; font-weight: 500;
+            text-decoration: none; box-shadow: 0 8px 20px rgba(45, 92, 86, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .contact-mail:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .social-row { margin-top: 26px; display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; }
+        .social-row a { color: var(--patina); text-decoration: none; font-weight: 500; font-size: 0.96em; }
+        .social-row a:hover { color: var(--patina-lo); text-decoration: underline; }
+
+        /* --- Footer --- */
+        footer { padding: 60px 0 50px; background: var(--patina-lo); color: rgba(245, 240, 235, 0.85); }
+        footer .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; margin-bottom: 40px; }
+        footer .brand { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.4em; color: var(--bg); margin-bottom: 6px; }
+        footer .brand-sub { font-size: 0.9em; color: rgba(245, 240, 235, 0.6); font-style: italic; }
+        footer .links { display: flex; flex-wrap: wrap; gap: 26px; }
+        footer .links a { color: rgba(245, 240, 235, 0.85); text-decoration: none; font-size: 0.95em; font-weight: 500; transition: color 0.15s ease; }
+        footer .links a:hover { color: var(--gold-soft); }
+        footer .copy { font-size: 0.82em; color: rgba(245, 240, 235, 0.5); border-top: 1px solid rgba(245, 240, 235, 0.12); padding-top: 22px; }
+
+        /* --- Lang toggle --- */
+        body[data-lang="en"] .lang-ko { display: none; }
+        body[data-lang="ko"] .lang-en { display: none; }
+        .lang-ko, .lang-en { display: inline; }
+
+        /* toast */
+        #toast {
+            position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: var(--patina-lo); color: var(--bg); padding: 12px 22px; border-radius: 999px;
+            font-size: 0.9em; font-weight: 500; box-shadow: var(--shadow-lg); opacity: 0;
+            pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; z-index: 100;
+        }
+        #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    </style>
+</head>
+<body data-lang="en">
+
+    <!-- =========== TOP BAR =========== -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <a href="/" class="wordmark">studioD51</a>
+            <a href="/slide-to-puzzle/" class="back-link">
+                ←
+                <span class="lang-en">Game page</span>
+                <span class="lang-ko">게임 페이지</span>
+            </a>
+        </div>
+        <div class="lang-toggle" role="group" aria-label="Language">
+            <button id="btn-en" class="active" onclick="switchLang('en')">EN</button>
+            <button id="btn-ko" onclick="switchLang('ko')">한국어</button>
+        </div>
+    </header>
+
+    <!-- =========== HERO =========== -->
+    <section class="hero">
+        <div class="container">
+            <div class="eyebrow">
+                <span class="lang-en">Press Kit</span>
+                <span class="lang-ko">프레스 킷</span>
+            </div>
+            <div class="hero-head">
+                <img class="hero-icon" src="/slide-to-puzzle/assets/icon.png" alt="Slide to Puzzle! app icon">
+                <h1 class="display">Slide to <span class="accent">Puzzle</span><span style="color: var(--gold);">!</span></h1>
+            </div>
+            <p class="tagline">
+                <span class="lang-en">A sliding puzzle with one quiet rebellion: there is no empty tile.</span>
+                <span class="lang-ko">한 가지 조용한 반란을 품은 슬라이딩 퍼즐 — 빈 칸이 없습니다.</span>
+            </p>
+            <div class="store-badges">
+                <a class="store-badge" href="https://apps.apple.com/us/app/slide-to-puzzle/id6768292349" target="_blank" rel="noopener" aria-label="Download on the App Store">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.42 2.2-1.26 3.04-.99.99-2.18 1.56-3.27 1.47-.13-1.1.43-2.27 1.21-3.03.86-.83 2.29-1.46 3.32-1.48zm3.86 16.36c-.56 1.3-.83 1.88-1.55 3.03-1.01 1.6-2.43 3.6-4.2 3.61-1.57.01-1.97-1.02-4.1-1.01-2.13.01-2.57 1.03-4.14 1.01-1.77-.01-3.12-1.81-4.13-3.41-2.82-4.48-3.12-9.74-1.38-12.53 1.24-1.99 3.19-3.15 5.02-3.15 1.87 0 3.04 1.02 4.59 1.02 1.5 0 2.41-1.02 4.58-1.02 1.63 0 3.36.89 4.59 2.42-4.03 2.2-3.38 7.96.72 9.43z"/></svg>
+                    <span class="badge-text"><span class="badge-small"><span class="lang-en">Download on the</span><span class="lang-ko">App Store에서</span></span><span class="badge-big">App Store</span></span>
+                </a>
+                <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.studioD51.slidetopuzzle" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+                    <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00D2FF" d="M48 59.7c-3 3.2-4.8 8.2-4.8 14.7v363.2c0 6.5 1.8 11.5 4.8 14.7l1.2 1.2 203.4-203.4v-4.8L49.2 58z"/><path fill="#FFCE00" d="M320.3 324.4l-67.7-67.8v-4.8l67.8-67.8 1.5.9 80.3 45.6c22.9 13 22.9 34.3 0 47.4l-80.3 45.6z"/><path fill="#00F076" d="M321.8 323.5L252.6 254.2 48 458.8c7.5 8 20 9 34 1l239.8-136.3"/><path fill="#FF3A44" d="M321.8 184.9L82 49c-14-8-26.5-7-34 1l204.6 204.2z"/></svg>
+                    <span class="badge-text"><span class="badge-small"><span class="lang-en">Get it on</span><span class="lang-ko">다운로드하기</span></span><span class="badge-big">Google Play</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== FACTSHEET =========== -->
+    <section class="block alt">
+        <div class="container">
+            <div class="eyebrow"><span class="lang-en">Fact sheet</span><span class="lang-ko">기본 정보</span></div>
+            <h2 class="section-title display"><span class="lang-en">At a <span class="italic">glance.</span></span><span class="lang-ko">한눈에 <span class="italic">보기.</span></span></h2>
+            <div class="factsheet">
+                <div class="fact"><div class="k"><span class="lang-en">Developer</span><span class="lang-ko">개발사</span></div><div class="v">studioD51 <span class="lang-en">— solo indie studio</span><span class="lang-ko">— 1인 인디 스튜디오</span></div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Based in</span><span class="lang-ko">위치</span></div><div class="v"><span class="lang-en">South Korea</span><span class="lang-ko">대한민국</span></div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Release</span><span class="lang-ko">출시</span></div><div class="v"><span class="lang-en">Out now — 2026 · iOS &amp; Android</span><span class="lang-ko">출시 완료 — 2026 · iOS &amp; 안드로이드</span></div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Price</span><span class="lang-ko">가격</span></div><div class="v"><span class="lang-en">Free · no account · optional ads &amp; ad-free IAP</span><span class="lang-ko">무료 · 계정 불필요 · 선택적 광고 및 광고 제거 IAP</span></div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Genre</span><span class="lang-ko">장르</span></div><div class="v"><span class="lang-en">Casual · Sliding puzzle</span><span class="lang-ko">캐주얼 · 슬라이딩 퍼즐</span></div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Languages</span><span class="lang-ko">지원 언어</span></div><div class="v">English</div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Engine</span><span class="lang-ko">엔진</span></div><div class="v">Godot 4.5</div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Content</span><span class="lang-ko">콘텐츠</span></div><div class="v"><span class="lang-en">100 levels · 12 masterpieces · 3 modifiers</span><span class="lang-ko">100레벨 · 명화 12점 · 변주 3종</span></div></div>
+                <div class="fact"><div class="k">App Store</div><div class="v"><a href="https://apps.apple.com/us/app/slide-to-puzzle/id6768292349" target="_blank" rel="noopener">apps.apple.com/app/id6768292349</a></div></div>
+                <div class="fact"><div class="k">Google Play</div><div class="v"><a href="https://play.google.com/store/apps/details?id=com.studioD51.slidetopuzzle" target="_blank" rel="noopener">play.google.com · com.studioD51.slidetopuzzle</a></div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Website</span><span class="lang-ko">웹사이트</span></div><div class="v"><a href="https://studiod51.github.io/slide-to-puzzle/" target="_blank" rel="noopener">studiod51.github.io/slide-to-puzzle</a></div></div>
+                <div class="fact"><div class="k"><span class="lang-en">Press contact</span><span class="lang-ko">언론 연락처</span></div><div class="v"><a href="mailto:studioD51.official@gmail.com">studioD51.official@gmail.com</a></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== DESCRIPTION (copy-paste blurbs) =========== -->
+    <section class="block">
+        <div class="container">
+            <div class="eyebrow"><span class="lang-en">Description</span><span class="lang-ko">소개 문구</span></div>
+            <h2 class="section-title display"><span class="lang-en">Copy, paste, <span class="italic">publish.</span></span><span class="lang-ko">복사해서 <span class="italic">그대로 쓰세요.</span></span></h2>
+            <p class="section-lede"><span class="lang-en">Three ready-to-use lengths. Hit copy and drop them straight into your article.</span><span class="lang-ko">바로 쓸 수 있는 세 가지 길이입니다. 복사 버튼을 눌러 기사에 그대로 넣으세요.</span></p>
+
+            <!-- Short -->
+            <div class="copy-block">
+                <div class="copy-label"><span><span class="lang-en">Short</span><span class="lang-ko">짧은 버전</span></span><span class="copy-len lang-en">~25 words</span><span class="copy-len lang-ko">약 60자</span></div>
+                <p class="lang-en" data-copy>Slide to Puzzle! is a museum-curated sliding puzzle with no empty tile — push whole rows and columns to restore 100 hand-crafted levels and 12 classical masterpieces, one line at a time.</p>
+                <p class="lang-ko" data-copy>Slide to Puzzle!는 빈 칸이 없는, 미술관에서 큐레이팅한 슬라이딩 퍼즐입니다. 행과 열을 통째로 밀어 100개의 손다듬은 레벨과 12점의 명화를 한 줄씩 복원하세요.</p>
+                <button class="btn-copy" onclick="copyText(this)"><span class="lang-en">Copy</span><span class="lang-ko">복사</span></button>
+            </div>
+
+            <!-- Medium -->
+            <div class="copy-block">
+                <div class="copy-label"><span><span class="lang-en">Medium</span><span class="lang-ko">중간 버전</span></span><span class="copy-len lang-en">~60 words</span><span class="copy-len lang-ko">약 150자</span></div>
+                <p class="lang-en" data-copy>The classic 15-puzzle has carried an empty tile for 150 years. Slide to Puzzle! removes it: entire rows and columns rotate in one fluid swipe, every cell moves, and the grid stays whole. Restore an unbroken canvas one row at a time — across 100 hand-crafted levels and 12 world masterpieces, from Van Gogh's Starry Night to Kandinsky. No timers, no leaderboards. Free on iOS &amp; Android.</p>
+                <p class="lang-ko" data-copy>150년 된 고전 15-퍼즐은 늘 빈 칸 하나를 끼고 있었습니다. Slide to Puzzle!는 그것을 없앴습니다. 한 번의 스와이프로 행과 열 전체가 돌아가고, 모든 칸이 함께 움직이며, 격자는 깨지지 않습니다. 반 고흐의 별이 빛나는 밤부터 칸딘스키까지 — 100개의 손다듬은 레벨과 12점의 세계 명화를 한 행씩 복원하세요. 타이머도 랭킹도 없습니다. iOS·안드로이드 무료.</p>
+                <button class="btn-copy" onclick="copyText(this)"><span class="lang-en">Copy</span><span class="lang-ko">복사</span></button>
+            </div>
+
+            <!-- Long -->
+            <div class="copy-block">
+                <div class="copy-label"><span><span class="lang-en">Long</span><span class="lang-ko">긴 버전</span></span><span class="copy-len lang-en">~110 words</span><span class="copy-len lang-ko">약 280자</span></div>
+                <p class="lang-en" data-copy>Slide to Puzzle! is a sliding puzzle with one quiet rebellion: there is no empty tile. The classic 15-puzzle has carried that empty cell for 150 years — we removed it. Entire rows and columns rotate in one fluid swipe; every cell moves, the grid stays whole. It isn't a puzzle of moving one tile, but of restoring an unbroken canvas. When a line aligns it locks with a tactile click and the playfield shrinks, so a 6×6 that looks impossible becomes playable in seconds. One sentence guides the design: "the minute spent on a puzzle should feel like the minute spent before a painting in a museum." No stars, no timers, no leaderboards — only 100 hand-crafted levels, 12 world masterpieces, and three gentle modifiers (Mono, Blur, Rotate). studioD51 is a solo indie studio; this is its debut.</p>
+                <p class="lang-ko" data-copy>Slide to Puzzle!는 한 가지 조용한 반란을 품은 슬라이딩 퍼즐입니다. 빈 칸이 없습니다. 150년 된 고전 15-퍼즐이 늘 끼고 있던 그 빈 칸을 우리는 없앴습니다. 한 번의 부드러운 스와이프로 행과 열 전체가 돌아가고, 모든 칸이 함께 움직이며, 격자는 깨지지 않습니다. 한 칸을 옮기는 퍼즐이 아니라, 끊김 없는 한 폭의 캔버스를 복원하는 퍼즐입니다. 한 줄이 맞춰지면 또각 하는 촉감과 함께 잠기고 판이 줄어들어, 불가능해 보이던 6×6도 몇 초 만에 풀 수 있게 됩니다. "퍼즐에 쓰는 1분이 미술관에서 그림 앞에 선 1분처럼 느껴지기를" — 이 한 문장이 디자인을 이끕니다. 별점도, 타이머도, 랭킹도 없습니다. 오직 100개의 손다듬은 레벨, 12점의 세계 명화, 그리고 세 가지 변주(Mono·Blur·Rotate)가 있을 뿐입니다. studioD51은 1인 인디 스튜디오이며, 이 작품이 데뷔작입니다.</p>
+                <button class="btn-copy" onclick="copyText(this)"><span class="lang-en">Copy</span><span class="lang-ko">복사</span></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== FEATURES =========== -->
+    <section class="block alt">
+        <div class="container">
+            <div class="eyebrow"><span class="lang-en">Key features</span><span class="lang-ko">주요 특징</span></div>
+            <h2 class="section-title display"><span class="lang-en">What makes it <span class="italic">different.</span></span><span class="lang-ko">무엇이 <span class="italic">다른가.</span></span></h2>
+            <div class="feature-grid">
+                <div class="feature"><div class="icon">∅</div><h3><span class="lang-en">No empty tile</span><span class="lang-ko">빈 칸 없는 메커니즘</span></h3><p><span class="lang-en">Rows and columns circulate as a whole — a fresh twist on the 150-year-old 15-puzzle.</span><span class="lang-ko">행과 열이 통째로 순환합니다. 150년 된 15-퍼즐을 새롭게 비틉니다.</span></p></div>
+                <div class="feature"><div class="icon">12</div><h3><span class="lang-en">World masterpieces</span><span class="lang-ko">세계 명화 12점</span></h3><p><span class="lang-en">Van Gogh, Monet, Vermeer, Klimt, Kandinsky &amp; more — restored and kept in your gallery.</span><span class="lang-ko">반 고흐, 모네, 베르메르, 클림트, 칸딘스키 등 — 복원해 갤러리에 보관합니다.</span></p></div>
+                <div class="feature"><div class="icon">100</div><h3><span class="lang-en">Hand-crafted levels</span><span class="lang-ko">손다듬은 100레벨</span></h3><p><span class="lang-en">A curated difficulty curve across six tiers — not procedural. Every level tested by hand.</span><span class="lang-ko">6개 난이도 구간의 정교한 곡선 — 자동 생성이 아닙니다. 모든 레벨을 손으로 검증.</span></p></div>
+                <div class="feature gold"><div class="icon">♺</div><h3><span class="lang-en">Three modifiers</span><span class="lang-ko">세 가지 변주</span></h3><p><span class="lang-en">Mono (color blooms on lock), Blur (image sharpens), Rotate (match position &amp; rotation).</span><span class="lang-ko">Mono(잠글 때 색이 피어남), Blur(점점 선명해짐), Rotate(위치·회전 일치).</span></p></div>
+                <div class="feature"><div class="icon">≈</div><h3><span class="lang-en">Tuned for feel</span><span class="lang-ko">손맛에 집착한 조작감</span></h3><p><span class="lang-en">Slide physics modeled on iOS scrolling, with distance-based Core Haptics — every cell crossing ticks.</span><span class="lang-ko">iOS 스크롤을 본뜬 슬라이드 물리와 거리 기반 Core Haptics — 칸을 지날 때마다 또각.</span></p></div>
+                <div class="feature"><div class="icon">◍</div><h3><span class="lang-en">Museum-quiet</span><span class="lang-ko">미술관처럼 조용하게</span></h3><p><span class="lang-en">Ivory paper, custom type, polished glass. No pressure — a game for the five minutes before sleep.</span><span class="lang-ko">아이보리 종이, 전용 서체, 투명한 광택. 압박 없이 — 자기 전 5분을 위한 게임.</span></p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== SCREENSHOTS =========== -->
+    <section class="block">
+        <div class="container">
+            <div class="eyebrow"><span class="lang-en">Screenshots</span><span class="lang-ko">스크린샷</span></div>
+            <h2 class="section-title display"><span class="lang-en">Press <span class="italic">images.</span></span><span class="lang-ko">보도용 <span class="italic">이미지.</span></span></h2>
+            <p class="section-lede"><span class="lang-en">Click any thumbnail for the full-resolution PNG. Free to use in coverage of the game.</span><span class="lang-ko">썸네일을 클릭하면 원본 해상도 PNG가 열립니다. 게임 관련 보도에 자유롭게 사용하세요.</span></p>
+            <div class="showcase-rail">
+                <div class="shot-card"><a href="/slide-to-puzzle/assets/s2p_01_hero.png" target="_blank"><div class="frame"><img src="/slide-to-puzzle/assets/s2p_01_hero.png" alt="Main play screen"></div></a><div class="caption"><span class="lang-en">Play</span><span class="lang-ko">플레이</span></div><a class="dl-link" href="/slide-to-puzzle/assets/s2p_01_hero.png" download>PNG ↓</a></div>
+                <div class="shot-card"><a href="/slide-to-puzzle/assets/s2p_02_mechanic.png" target="_blank"><div class="frame"><img src="/slide-to-puzzle/assets/s2p_02_mechanic.png" alt="Slide and lock a row"></div></a><div class="caption"><span class="lang-en">Slide &amp; Lock</span><span class="lang-ko">밀고 잠그기</span></div><a class="dl-link" href="/slide-to-puzzle/assets/s2p_02_mechanic.png" download>PNG ↓</a></div>
+                <div class="shot-card"><a href="/slide-to-puzzle/assets/s2p_04_masterpiece.png" target="_blank"><div class="frame"><img src="/slide-to-puzzle/assets/s2p_04_masterpiece.png" alt="Masterpiece reveal"></div></a><div class="caption"><span class="lang-en">Masterpiece</span><span class="lang-ko">명화</span></div><a class="dl-link" href="/slide-to-puzzle/assets/s2p_04_masterpiece.png" download>PNG ↓</a></div>
+                <div class="shot-card"><a href="/slide-to-puzzle/assets/s2p_03_gallery.png" target="_blank"><div class="frame"><img src="/slide-to-puzzle/assets/s2p_03_gallery.png" alt="Gallery of cleared puzzles"></div></a><div class="caption"><span class="lang-en">Gallery</span><span class="lang-ko">갤러리</span></div><a class="dl-link" href="/slide-to-puzzle/assets/s2p_03_gallery.png" download>PNG ↓</a></div>
+                <div class="shot-card"><a href="/slide-to-puzzle/assets/s2p_06_mono.png" target="_blank"><div class="frame"><img src="/slide-to-puzzle/assets/s2p_06_mono.png" alt="Mono modifier"></div></a><div class="caption"><span class="lang-en">Mono</span><span class="lang-ko">모노</span></div><a class="dl-link" href="/slide-to-puzzle/assets/s2p_06_mono.png" download>PNG ↓</a></div>
+                <div class="shot-card"><a href="/slide-to-puzzle/assets/s2p_07_blur.png" target="_blank"><div class="frame"><img src="/slide-to-puzzle/assets/s2p_07_blur.png" alt="Blur modifier"></div></a><div class="caption"><span class="lang-en">Blur</span><span class="lang-ko">블러</span></div><a class="dl-link" href="/slide-to-puzzle/assets/s2p_07_blur.png" download>PNG ↓</a></div>
+                <div class="shot-card"><a href="/slide-to-puzzle/assets/s2p_08_rotation.png" target="_blank"><div class="frame"><img src="/slide-to-puzzle/assets/s2p_08_rotation.png" alt="Rotate modifier"></div></a><div class="caption"><span class="lang-en">Rotate</span><span class="lang-ko">회전</span></div><a class="dl-link" href="/slide-to-puzzle/assets/s2p_08_rotation.png" download>PNG ↓</a></div>
+                <div class="shot-card"><a href="/slide-to-puzzle/assets/s2p_05_calm.png" target="_blank"><div class="frame"><img src="/slide-to-puzzle/assets/s2p_05_calm.png" alt="Calm museum-quiet interface"></div></a><div class="caption"><span class="lang-en">Calm</span><span class="lang-ko">고요함</span></div><a class="dl-link" href="/slide-to-puzzle/assets/s2p_05_calm.png" download>PNG ↓</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== LOGO & ASSETS =========== -->
+    <section class="block alt">
+        <div class="container">
+            <div class="eyebrow"><span class="lang-en">Logo &amp; assets</span><span class="lang-ko">로고 &amp; 에셋</span></div>
+            <h2 class="section-title display"><span class="lang-en">Brand <span class="italic">downloads.</span></span><span class="lang-ko">브랜드 <span class="italic">에셋.</span></span></h2>
+            <div class="asset-grid">
+                <a class="asset-card" href="/slide-to-puzzle/assets/icon.png" download>
+                    <img class="thumb" src="/slide-to-puzzle/assets/icon.png" alt="App icon">
+                    <div><div class="a-title"><span class="lang-en">App icon</span><span class="lang-ko">앱 아이콘</span></div><div class="a-meta">PNG ↓</div></div>
+                </a>
+                <a class="asset-card" href="/slide-to-puzzle/assets/mp_starry_night.jpg" download>
+                    <img class="thumb" src="/slide-to-puzzle/assets/mp_starry_night.jpg" alt="Starry Night key art">
+                    <div><div class="a-title"><span class="lang-en">Key art — Starry Night</span><span class="lang-ko">키 아트 — 별이 빛나는 밤</span></div><div class="a-meta">JPG ↓</div></div>
+                </a>
+                <a class="asset-card" href="/slide-to-puzzle/assets/s2p_04_masterpiece.png" download>
+                    <img class="thumb" src="/slide-to-puzzle/assets/s2p_04_masterpiece.png" alt="Masterpiece reveal screen">
+                    <div><div class="a-title"><span class="lang-en">Hero screenshot</span><span class="lang-ko">대표 스크린샷</span></div><div class="a-meta">PNG ↓</div></div>
+                </a>
+            </div>
+            <p style="margin-top:22px; color:var(--text-2); font-size:0.95em;">
+                <span class="lang-en">Need a logo lockup, a press release, or a review build (TestFlight / APK)? Email us — we'll send it the same day.</span>
+                <span class="lang-ko">로고 락업, 보도자료, 또는 리뷰용 빌드(TestFlight / APK)가 필요하신가요? 이메일 주시면 당일 보내드립니다.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- =========== MASTERPIECES =========== -->
+    <section class="block">
+        <div class="container">
+            <div class="eyebrow"><span class="lang-en">The collection</span><span class="lang-ko">컬렉션</span></div>
+            <h2 class="section-title display"><span class="lang-en">Twelve paintings, <span class="italic">unlocked one by one.</span></span><span class="lang-ko">열두 점의 그림, <span class="italic">한 점씩 차례로.</span></span></h2>
+            <div class="museum">
+                <div class="featured-painting">
+                    <img src="/slide-to-puzzle/assets/mp_starry_night.jpg" alt="The Starry Night by Vincent van Gogh">
+                    <div class="plaque"><div class="title display">The Starry Night</div><div class="meta">Vincent van Gogh · 1889</div></div>
+                </div>
+                <div class="museum-side">
+                    <h3><span class="lang-en">A small museum, in your pocket.</span><span class="lang-ko">주머니 속 작은 미술관.</span></h3>
+                    <p class="desc"><span class="lang-en">Each masterpiece is divided into outer panels around an inner puzzle. Solve every panel and a full-screen exhibition fades in — Van Gogh, Seurat, Monet, da Vinci, Vermeer, Klimt, Kandinsky and more.</span><span class="lang-ko">명화는 바깥 패널이 안쪽 퍼즐을 감싸는 구조입니다. 모든 패널을 풀면 풀스크린 전시 화면이 등장합니다 — 반 고흐, 쇠라, 모네, 다 빈치, 베르메르, 클림트, 칸딘스키 등.</span></p>
+                    <div class="thumb-row">
+                        <div><div class="thumb"><img src="/slide-to-puzzle/assets/mp_grande_jatte.jpg" alt="A Sunday on La Grande Jatte"></div><div class="thumb-caption">Seurat · 1886</div></div>
+                        <div><div class="thumb"><img src="/slide-to-puzzle/assets/mp_mona_lisa.jpg" alt="Mona Lisa"></div><div class="thumb-caption">da Vinci · 1503</div></div>
+                        <div><div class="thumb"><img src="/slide-to-puzzle/assets/mp_the_kiss.jpg" alt="The Kiss"></div><div class="thumb-caption">Klimt · 1908</div></div>
+                    </div>
+                    <p class="more-line"><span class="lang-en">…and eight more, waiting to be uncovered.</span><span class="lang-ko">…그리고 여덟 점이 더, 발견되기를 기다리고 있습니다.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== QUOTE / ABOUT =========== -->
+    <section class="quote-band">
+        <div class="container">
+            <blockquote class="display"><span class="lang-en">“Slow puzzles, made to look at.”</span><span class="lang-ko">“바라보기 위해 만든 느린 퍼즐.”</span></blockquote>
+            <div class="attribution">studioD51</div>
+            <p style="max-width:42em; margin:26px auto 0; color:var(--text-2); font-size:1.02em;">
+                <span class="lang-en">studioD51 is a solo indie game studio building games for the small windows of a day — the five minutes on the way to work, the fifteen minutes before sleep. No timers, no rankings, no pressure. Slide to Puzzle! is its debut.</span>
+                <span class="lang-ko">studioD51은 출근길 5분, 자기 전 15분 — 하루의 작은 틈을 위한 게임을 만드는 1인 인디 스튜디오입니다. 타이머도, 랭킹도, 압박도 없이. Slide to Puzzle!는 그 데뷔작입니다.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- =========== CONTACT =========== -->
+    <section class="contact-band">
+        <div class="container">
+            <div class="eyebrow" style="text-align:center;"><span class="lang-en">Get in touch</span><span class="lang-ko">연락하기</span></div>
+            <h2 class="display"><span class="lang-en">Questions, builds, <span class="italic">interviews.</span></span><span class="lang-ko">문의 · 빌드 · <span class="italic">인터뷰.</span></span></h2>
+            <p class="lede"><span class="lang-en">We reply fast and we're happy to send review builds, extra assets, or answer anything for your piece.</span><span class="lang-ko">빠르게 답장드립니다. 리뷰용 빌드, 추가 에셋, 기사에 필요한 어떤 질문이든 환영합니다.</span></p>
+            <a class="contact-mail" href="mailto:studioD51.official@gmail.com">studioD51.official@gmail.com</a>
+            <div class="social-row">
+                <a href="https://youtube.com/@studiod51.official" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://www.tiktok.com/@studiod51" target="_blank" rel="noopener">TikTok</a>
+                <a href="https://studiod51.github.io/slide-to-puzzle/" target="_blank" rel="noopener"><span class="lang-en">Website</span><span class="lang-ko">웹사이트</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== FOOTER =========== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="brand">Slide to Puzzle!</div>
+                    <div class="brand-sub">by studioD51</div>
+                </div>
+                <div class="links">
+                    <a href="/slide-to-puzzle/"><span class="lang-en">Game page</span><span class="lang-ko">게임 페이지</span></a>
+                    <a href="/legal/privacy-policy-slide-to-puzzle.html"><span class="lang-en">Privacy</span><span class="lang-ko">개인정보처리방침</span></a>
+                    <a href="/legal/terms-of-service.html"><span class="lang-en">Terms</span><span class="lang-ko">이용약관</span></a>
+                    <a href="/legal/support.html"><span class="lang-en">Support</span><span class="lang-ko">고객 지원</span></a>
+                    <a href="https://youtube.com/@studiod51.official" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.tiktok.com/@studiod51" target="_blank" rel="noopener">TikTok</a>
+                    <a href="mailto:studioD51.official@gmail.com">studioD51.official@gmail.com</a>
+                </div>
+            </div>
+            <div class="copy">
+                © 2026 studioD51. All rights reserved.
+                <span style="opacity:0.7; margin-left:8px;"><span class="lang-en">Slide to Puzzle! is a trademark of studioD51.</span><span class="lang-ko">Slide to Puzzle!은 studioD51의 상표입니다.</span></span>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast"><span class="lang-en">Copied to clipboard</span><span class="lang-ko">클립보드에 복사됨</span></div>
+
+    <script>
+        function switchLang(lang) {
+            document.body.setAttribute('data-lang', lang);
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+            try { localStorage.setItem('s2p-lang', lang); } catch (e) {}
+        }
+        try {
+            const saved = localStorage.getItem('s2p-lang');
+            if (saved === 'ko' || saved === 'en') switchLang(saved);
+        } catch (e) {}
+
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            clearTimeout(window.__toastT);
+            window.__toastT = setTimeout(() => t.classList.remove('show'), 1600);
+        }
+        function copyText(btn) {
+            const block = btn.closest('.copy-block');
+            const lang = document.body.getAttribute('data-lang');
+            const cls = lang === 'ko' ? 'lang-ko' : 'lang-en';
+            const el = block.querySelector('p.' + cls + '[data-copy]');
+            const text = el ? el.textContent.trim() : '';
+            if (navigator.clipboard && text) {
+                navigator.clipboard.writeText(text).then(showToast).catch(() => {});
+            }
+        }
+    </script>
+</body>
+</html>
